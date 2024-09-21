@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet List</title>
+</head>
+<body>
+    <h1>Add a New Pet</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name(size=32) }}<br>
+        </p>
+        <p>
+            {{ form.age.label }}<br>
+            {{ form.age(size=32) }}<br>
+        </p>
+        <p>
+            {{ form.type.label }}<br>
+            {{ form.type(size=32) }}<br>
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+
+    <h2>Pets List</h2>
+    <ul>
+        {% for pet in pets %}
+            <li>{{ pet.name }} - Age: {{ pet.age }} - Type: {{ pet.type }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
