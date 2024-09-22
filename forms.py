@@ -6,4 +6,4 @@ class PetForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     age = IntegerField('Age', validators=[DataRequired()])
     type = StringField('Type', validators=[DataRequired()])
-    submit = SubmitField('Add Pet')
+    submit = SubmitField('Make a new Entry')

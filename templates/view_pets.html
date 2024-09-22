@@ -3,31 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet List</title>
+    <title>Pets data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input {
+            padding: 8px;
+            margin-bottom: 10px;
+            width: 300px;
+            box-sizing: border-box;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background-color: #f4f4f4;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Add a New Pet</h1>
+    <h1>Adding a New Pet Data</h1>
     <form method="POST">
         {{ form.hidden_tag() }}
         <p>
-            {{ form.name.label }}<br>
-            {{ form.name(size=32) }}<br>
+            <label for="name">{{ form.name.label }}</label><br>
+            {{ form.name(size=32, id="name") }}
         </p>
         <p>
-            {{ form.age.label }}<br>
-            {{ form.age(size=32) }}<br>
+            <label for="age">{{ form.age.label }}</label><br>
+            {{ form.age(size=32, id="age") }}
         </p>
         <p>
-            {{ form.type.label }}<br>
-            {{ form.type(size=32) }}<br>
+            <label for="type">{{ form.type.label }}</label><br>
+            {{ form.type(size=32, id="type") }}
         </p>
         <p>{{ form.submit() }}</p>
     </form>
 
-    <h2>Pets List</h2>
+    <h2>Pets data</h2>
     <ul>
         {% for pet in pets %}
-            <li>{{ pet.name }} - Age: {{ pet.age }} - Type: {{ pet.type }}</li>
+            <li><strong>{{ pet.name }}</strong> - Age: {{ pet.age }} - Type: {{ pet.type }}</li>
         {% endfor %}
     </ul>
 </body>
